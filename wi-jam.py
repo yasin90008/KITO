@@ -3,12 +3,14 @@ import netifaces
 import random
 import time
 import subprocess
+import requests
 
 Red = '\033[1;31m'
 Blue= '\033[1;36m'
 Endc = '\033[0m'
 
 line = "----------------------------------------------------------"
+verl = open("core/.version", 'r').read()
 
 def clr():
     if os.name == 'nt':
@@ -26,10 +28,10 @@ def main():
  /   /  \\   | /\  |\  /  :|_/ )/   /  \\  \ |.  \    /:  |
 |___/    \___|(__\_|_)(_______/(___/    \___)|___|\__/|___|
 
-   ""","""
-----------------------       ------------------------------
-|      SecAnon       |       |     Version :  1.0Beta     |
-----------------------       ------------------------------
+   """,f"""
+----------------------     -------------------------------
+|      SecAnon       |     |   Version : {verl}     |
+----------------------     -------------------------------
 
 \t        Created by Honey Pots...
 
@@ -52,31 +54,32 @@ def update():
     input('\n\tPress Enter To Run Again Wi-Jam Tool: ')
     subprocess.call([sys.executable, 'wi-jam.py'])
 def net_update_active():
-    banner()
+    main()
     try:
         r = requests.get('https://www.honeypots.tech')
     except:
-            print('\n     Your Internet Connection Slow ... ')
-            print('\n\t     Error : 504\n')
+            print('\n\t     Your Internet Connection Slow ... ')
+            print('\n\t\t     Error : 504\n')
             print(line)
             input('\n\tPress Enter To Continue : ')
-    print('\n\t    Checking For Updates...')
+    print('\n\t\t    Checking For Updates...')
     ver_r = requests.get(
-        "https://raw.githubusercontent.com/HoneyPots0/Wi-Jam/master/core/.version")
+        "https://raw.githubusercontent.com/HoneyPots0/Wi-Jam/main/core/.version")
     ver = ver_r.text
     try:
         verl = open("core/.version", 'r').read()
     except:
         pass
     if ver != verl:
-        print('\n\tNew Version Available : ', ver)
-        print('\n\t  HBomb Tool Start Updating...')
+        print('\n\t\tNew Version Available : ', ver)
+        print('\n\t\t  Wi-Jam Tool Start Updating...')
         update()
-    print("\n\tYour Version is Up-To-Date")
-    print('\n\t     Starting HPomb...\n')
+    print("\n\t\tYour Version is Up-To-Date")
+    print('\n\t\t    Starting HPomb...\n')
     time.sleep(1)
 net_update_active()
 
+main()
 
 interfaces = netifaces.interfaces()
 
