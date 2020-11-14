@@ -1,7 +1,7 @@
 <h1 align="center">Wi-Jam v2020.11 Beta</h1>
 <h5 align="right">Created By Honey Pots</h5>
 <p align="center">Wi-Jam open-source project for WiFi Jamming available for  Linux </p><br>
-<img src="https://honeypots.tech/p/HPomb/v2020.10/v2020.10.png" alt="look">
+<img src="https://repository-images.githubusercontent.com/312641662/d834b600-267e-11eb-9671-39b4d9fbe884" alt="look">
 
 ![platforms](https://img.shields.io/badge/Platforms-Linux-orange)
 ![Analisy](https://img.shields.io/badge/Version-2020.11Beta-success)
