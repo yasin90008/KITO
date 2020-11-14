@@ -4,7 +4,7 @@ import random
 import time
 import subprocess
 import requests
-
+import sys
 Red = '\033[1;31m'
 Blue= '\033[1;36m'
 Endc = '\033[0m'
@@ -77,7 +77,10 @@ def net_update_active():
     print("\n\t\tYour Version is Up-To-Date")
     print('\n\t\t    Starting HPomb...\n')
     time.sleep(1)
-net_update_active()
+try:
+    net_update_active()
+except:
+    pass
 
 main()
 
@@ -162,5 +165,5 @@ else :
     main()
     print(Red+f"\t\t        WiFi Jamm SuccessFul \n"+Blue)
     input("Please Enter To Stop WiFi Jamming : ")
-    proc.terminate()
+    subprocess.call([sys.executable, 'stop.py'])
 
