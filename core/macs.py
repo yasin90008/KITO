@@ -47,7 +47,7 @@ channel = list_argv[3]
 command = 'airodump-ng -c ' + channel + ' --bssid ' + mac +' '+ nm
 os.system(command)
 
-input('Please Enter To Exit : ')
+time.sleep(15)
 def end():
     foo=raw_input()
     sys.exit()

@@ -45,7 +45,7 @@ nm = list_argv[1]+'mon'
 command = 'airodump-ng ' + nm 
 os.system(command)
 
-input('Please Enter To Exit : ')
+time.sleep(15)
 def end():
     foo=raw_input()
     sys.exit()

