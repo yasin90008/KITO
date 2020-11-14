@@ -21,7 +21,7 @@
 
 ## Usage:
 
-Run these commands to Run HPomb
+Run these commands to Run Wi-Jam
 
 ### > For Linux:
 
