@@ -42,17 +42,17 @@ def main():
 main()
 
 def update():
-    myfile = ('wi-jam.py','core/conn.py','core/jama.py','core/jams.py' ,'core/macs.py')
+    myfile = ('dark-wifi.py','core/conn.py','core/jama.py','core/jams.py' ,'core/macs.py')
     for f in myfile:
         f = str(f)
-        req = requests.get("https://raw.githubusercontent.com/HoneyPots0/Wi-Jam/master/" + f)
+        req = requests.get("https://raw.githubusercontent.com/HoneyPots0/Dark-WiFi/master/" + f)
         dat = req.text
         file = open(f, 'wb')
         file.write(dat)
         file.close()
     print('\n\t    Updated Successfull !!!')
     input('\n\tPress Enter To Run Again Wi-Jam Tool: ')
-    subprocess.call([sys.executable, 'wi-jam.py'])
+    subprocess.call([sys.executable, 'dark-wifi.py'])
 def net_update_active():
     main()
     try:
@@ -64,7 +64,7 @@ def net_update_active():
             input('\n\tPress Enter To Continue : ')
     print('\n\t\t    Checking For Updates...')
     ver_r = requests.get(
-        "https://raw.githubusercontent.com/HoneyPots0/Wi-Jam/main/core/.version")
+        "https://raw.githubusercontent.com/HoneyPots0/Dark-WiFi/main/core/.version")
     ver = ver_r.text
     try:
         verl = open("core/.version", 'r').read()
@@ -72,7 +72,7 @@ def net_update_active():
         pass
     if ver != verl:
         print('\n\t\tNew Version Available : ', ver)
-        print('\n\t\t  Wi-Jam Tool Start Updating...')
+        print('\n\t\t  Dark-WiFi Tool Start Updating...')
         update()
     print("\n\t\tYour Version is Up-To-Date")
     print('\n\t\t    Starting HPomb...\n')
