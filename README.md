@@ -28,7 +28,7 @@ Run these commands to Run Dark-WiFi
 To use the Dark-WiFi type the following commands in Terminal:
 ```
 apt-get install git
-apt-get install python
+apt-get install python3
 git clone https://github.com/HoneyPots0/Wi-Jam.git
 cd Wi-Jam
 pip3 install -r requirements.txt
