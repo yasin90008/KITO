@@ -41,12 +41,11 @@ print(Blue)
 list_argv = list(sys.argv)
 nm = list_argv[1]+'mon'
 mac = list_argv[2]
-singal = list_argv[3]
-command = 'aireplay-ng -0 0 -a ' + mac + ' -c ' + singal + ' ' + nm 
-print(command)
+channel = list_argv[3]
+command = 'airodump-ng -c ' + channel + ' --bssid ' + mac +' '+ nm
 os.system(command)
 
-time.sleep(5)
+time.sleep(1)
 def end():
     foo=raw_input()
     sys.exit()

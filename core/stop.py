@@ -3,12 +3,14 @@ import netifaces
 import random
 import time
 import subprocess
+import requests
 
 Red = '\033[1;31m'
 Blue= '\033[1;36m'
 Endc = '\033[0m'
 
 line = "----------------------------------------------------------"
+verl = open("core/.version", 'r').read()
 
 def clr():
     if os.name == 'nt':
@@ -24,10 +26,10 @@ __  / / /  __ `/_  ___/_  //_/    __ | /| / /__  /__  /_   __  /
 _  /_/ // /_/ /_  /   _  ,<       __ |/ |/ / _  / _  __/   _  /  
 /_____/ \__,_/ /_/    /_/|_|      ____/|__/  /_/  /_/      /_/   
                                                                  
-   ""","""
-----------------------       ------------------------------
-|      SecAnon       |       |     Version :  1.0Beta     |
-----------------------       ------------------------------
+   """,f"""
+----------------------     -------------------------------
+|      SecAnon       |     |   Version : {verl}     |
+----------------------     -------------------------------
 
 \t        Created by Honey Pots...
 
@@ -36,18 +38,24 @@ _  /_/ // /_/ /_  /   _  ,<       __ |/ |/ / _  / _  __/   _  /
     print(Red+logo[0]+Blue+logo[1])
 
 main()
-import sys
-print(Blue)
-list_argv = list(sys.argv)
-nm = list_argv[1]+'mon'
-mac = list_argv[2]
-singal = list_argv[3]
-command = 'aireplay-ng -0 0 -a ' + mac + ' -c ' + singal + ' ' + nm 
-print(command)
-os.system(command)
 
-time.sleep(5)
-def end():
-    foo=raw_input()
-    sys.exit()
-end()
+
+interfaces = netifaces.interfaces()
+lists = []
+for i in interfaces:
+    if i[-3:] == 'mon':
+        lists.append(i)
+    else:
+        pass
+
+monitro = lists[0] 
+
+if monitro[-3:] == 'mon' :
+    mon = monitro.replace('mon','')
+else:
+    mon= monitro
+os.system(f'airmon-ng stop  {monitro}')
+os.system(f'macchanger -p {mon}')
+print("\n" , line)
+print("\nNow Everything is Normal ")
+input("Please Enter To Exit : ")
