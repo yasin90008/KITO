@@ -1,6 +1,6 @@
 <h1 align="center">Dark-WiFi Tool v2020.11 Beta</h1>
 <h5 align="right">Created By Honey Pots</h5>
-<p align="center">Wi-Jam open-source project for WiFi Jamming available for  Linux </p><br>
+<p align="center">Dark-WiFi open-source project for WiFi  available for  Linux </p><br>
 <img src="https://repository-images.githubusercontent.com/312641662/d834b600-267e-11eb-9671-39b4d9fbe884" alt="look">
 
 ![platforms](https://img.shields.io/badge/Platforms-Linux-orange)
