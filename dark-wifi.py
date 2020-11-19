@@ -17,7 +17,105 @@ def clr():
         os.system('cls')
     else:
         os.system('clear')
-def main():
+use_tim = ''
+def get_id():
+    clr()
+    global use_tim 
+    id_path = 'core/.da'
+    id_check = open(id_path,'a')
+    id_read = open(id_path,'r')
+    id = id_read.read()
+    if id:
+        try:
+            data = { 'id': id }
+            url = 'https://honeypots.tech/p/Dark-WiFi/user/use.php'
+            r = requests.get(url=url , params=data)
+            s_code = r.status_code
+            if int(s_code) == 200 :
+                use_time = r.text
+                use_time = use_time.strip()
+            else:
+                banner()
+                print('\n\tSomething Wrong To Get I\'D\n\n       Please Contact To Developer ')
+                print('\n\t     Error : 501\n')
+                print(line)
+                print(Red+'\n\t\t[ Sub Menu ]')
+                print(Blue +'''\n[01] Contact To Developer\n[02] Again Run Dark WiFi Tool''')
+                error501 = input('\nChoose One Options : ')
+                if error501 == 1:
+                    subprocess.call([sys.executable, 'core/contact.py'])
+                else: 
+                    subprocess.call([sys.executable, 'dark-wifi.py'])
+        except:
+            banner()
+            print('\n     Your Internet Connection Slow ... ')
+            print('\n\t     Error : 502\n')
+            print(line)
+            print(Red+'\n\t\t[ Sub Menu ]')
+            print(Blue +'''\n[01] Contact To Developer\n[02] Again Run Dark WiFi Tool''')
+            error502 = input('\nChoose One Options : ')
+            if error502 == 1:
+                subprocess.call([sys.executable, 'core/contact.py'])
+            else: 
+                subprocess.call([sys.executable, 'dark-wifi.py'])
+    else:
+        header = ''
+        url = 'https://honeypots.tech/p/Dark-WiFi/user/id.php'
+        r = requests.get(url=url, headers=header)
+        id_gen = r.text
+        if len(id_gen) <= 50 :
+            id_gen = id_gen.strip()
+            id_gen = str(id_gen)
+            use_time = str(1)
+            id_check.write(id_gen)
+            id = id_gen
+        else :
+                banner()
+                print('\n\tSomething Wrong To Get I\'D\n\n       Please Contact To Developer ')
+                print('\n\t     Error : 503\n')
+                print(line)
+                print(Red+'\n\t\t[ Sub Menu ]')
+                print(Blue +'''\n[01] Contact To Developer\n[02] Again Run Dark WiFi Tool''')
+                error503 = input('\nChoose One Options : ')
+                if error503 == 1:
+                    subprocess.call([sys.executable, 'core/contact.py'])
+                else: 
+                    subprocess.call([sys.executable, 'dark-wifi.py'])
+    if id:
+        pass
+    else:
+        banner()
+        print('\n\tSomething Wrong To Get I\'D\n\n       Please Contact To Developer ')
+        print('\n\t     Error : 506\n')
+        print(line)
+        print(Red+'\n\t\t[ Sub Menu ]')
+        print(Blue +'''\n[01] Contact To Developer\n[02] Again Run Dark WiFi Tool''')
+        error503 = input('\nChoose One Options : ')
+        if error503 == 1:
+            subprocess.call([sys.executable, 'core/contact.py'])
+        else: 
+            subprocess.call([sys.executable, 'dark-wifi.py'])
+
+    if use_time:
+        pass
+    else:
+        banner()
+        print('\n\tYour I\'D Invalid \n\n       Please Reinstall Dark WiFi Tool ')
+        print('\n\t     Error : 507\n')
+        print(line)
+        print(Red+'\n\t\t[ Sub Menu ]')
+        print(Blue +'''\n[01] Contact To Developer\n[02] Reinstall Dark WiFi Tool''')
+        error503 = input('\nChoose One Options : ')
+        if error503 == 1:
+            subprocess.call([sys.executable, 'core/contact.py'])
+        else: 
+            os.system("pip3 install -r requirements.txt")
+
+            subprocess.call([sys.executable, 'dark-wifi.py'])      
+    id = id.strip()
+    use_tim = use_time
+
+def banner():
     clr()
     logo="""
 ________              ______      ___       ____________________ 
@@ -37,20 +135,47 @@ _  /_/ // /_/ /_  /   _  ,<       __ |/ |/ / _  / _  __/   _  /
 """
     print(Red+logo[0]+Blue+logo[1])
 
+def main():
+    clr()
+    id_path = 'core/.da'
+    id_check = open(id_path,'a')
+    id_read = open(id_path,'r')
+    id = id_read.read()
+    global use_tim
+    logo="""
+________              ______      ___       ____________________ 
+___  __ \_____ __________  /__    __ |     / /__(_)__  ____/__(_)
+__  / / /  __ `/_  ___/_  //_/    __ | /| / /__  /__  /_   __  / 
+_  /_/ // /_/ /_  /   _  ,<       __ |/ |/ / _  / _  __/   _  /  
+/_____/ \__,_/ /_/    /_/|_|      ____/|__/  /_/  /_/      /_/   
+                                                                                                                                                                                     
+   """,f"""
+----------------------     -------------------------------
+|      SecAnon       |     |   Version : {verl}     |
+----------------------     -------------------------------
+
+\t        Created by Honey Pots...
+
+---------------------------------------------------------- 
+    ID : {id}                            USE : {use_tim} 
+---------------------------------------------------------- 
+"""
+    print(Red+logo[0]+Blue+logo[1])
+
 main()
 
 def update():
-    myfile = ('wi-jam.py','core/conn.py','core/jama.py','core/jams.py' ,'core/macs.py')
+    myfile = ('dark-wifi.py','core/conn.py','core/jama.py','core/jams.py' ,'core/macs.py')
     for f in myfile:
         f = str(f)
-        req = requests.get("https://raw.githubusercontent.com/HoneyPots0/Wi-Jam/master/" + f)
+        req = requests.get("https://raw.githubusercontent.com/HoneyPots0/Dark-WiFi/master/" + f)
         dat = req.text
         file = open(f, 'wb')
         file.write(dat)
         file.close()
     print('\n\t    Updated Successfull !!!')
-    input('\n\tPress Enter To Run Again Wi-Jam Tool: ')
-    subprocess.call([sys.executable, 'wi-jam.py'])
+    input('\n\tPress Enter To Run Again Dark-WiFi Tool: ')
+    subprocess.call([sys.executable, 'dark-wifi.py'])
 def net_update_active():
     main()
     try:
@@ -62,7 +187,7 @@ def net_update_active():
             input('\n\tPress Enter To Continue : ')
     print('\n\t\t    Checking For Updates...')
     ver_r = requests.get(
-        "https://raw.githubusercontent.com/HoneyPots0/Wi-Jam/main/core/.version")
+        "https://raw.githubusercontent.com/HoneyPots0/Dark-WiFi/main/core/.version")
     ver = ver_r.text
     try:
         verl = open("core/.version", 'r').read()
@@ -70,11 +195,42 @@ def net_update_active():
         pass
     if ver != verl:
         print('\n\t\tNew Version Available : ', ver)
-        print('\n\t\t  Wi-Jam Tool Start Updating...')
+        print('\n\t\t   Tool Start Updating...')
         update()
     print("\n\t\tYour Version is Up-To-Date")
-    print('\n\t\t    Starting HPomb...\n')
+    print('\n\t\t    Starting Dark WiFi Tool ...\n')
     time.sleep(1)
+
+try:
+    get_id()
+    instl_file = open("core/.install", 'a')
+    instl_write = open("core/.install","w")
+    instl_write.write("1") 
+except:
+    banner()
+    install_file = open("core/.install", 'a')
+    install= open("core/.install","r").read()
+    install = install.strip()
+    if install :
+        print('\n\t     Your Internet Connection Slow ... ')
+        print('\n\t\t     Error : 504\n')
+        print(line)
+        input('\n\tPress Enter To Continue  : ')
+    else:
+        banner()
+        print('\n\t     Your Internet Connection Slow ... ')
+        print("\n\t     First Time It's Require Internet ")
+        print('\n\t\t     Error : 504\n')
+        print(line)
+        input('\n\tPress Enter To Run Again : ')
+        subprocess.call([sys.executable, 'dark-wifi.py'])   
+        install_write = open("core/.install","w")
+        install_write.write("1") 
+
+
+
+
+
 try:
     net_update_active()
 except:
