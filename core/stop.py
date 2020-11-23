@@ -54,7 +54,7 @@ if monitro[-3:] == 'mon' :
     mon = monitro.replace('mon','')
 else:
     mon= monitro
-os.system(f'airmon-ng stop  {monitro}')
+os.system(f'sudo airmon-ng stop  {monitro}')
 os.system(f'macchanger -p {mon}')
 print("\n" , line)
 print("\nNow Everything is Normal ")
