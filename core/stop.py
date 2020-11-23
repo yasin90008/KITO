@@ -55,7 +55,7 @@ if monitro[-3:] == 'mon' :
 else:
     mon= monitro
 os.system(f'sudo airmon-ng stop  {monitro}')
-os.system(f'macchanger -p {mon}')
+os.system(f'sudo macchanger -p {mon}')
 print("\n" , line)
 print("\nNow Everything is Normal ")
 input("Please Enter To Exit : ")
