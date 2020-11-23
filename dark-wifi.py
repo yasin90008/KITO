@@ -165,8 +165,9 @@ try:
     get_id()
     instl_file = open("core/.install", 'a')
     instl_write = open("core/.install","w")
-    instl_write.write("1") 
+    os.system("pip3 install -r requirements.txt")
     os.system("sudo apt-get install gnome-terminal")
+    instl_write.write("1") 
 except:
     banner()
     install_file = open("core/.install", 'a')
