@@ -42,7 +42,7 @@ list_argv = list(sys.argv)
 nm = list_argv[1]+'mon'
 mac = list_argv[2]
 channel = list_argv[3]
-command = 'airodump-ng -c ' + channel + ' --bssid ' + mac +' '+ nm
+command = 'sudo airodump-ng -c ' + channel + ' --bssid ' + mac +' '+ nm
 os.system(command)
 
 time.sleep(1)
