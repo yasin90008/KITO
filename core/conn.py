@@ -40,7 +40,7 @@ import sys
 print(Blue)
 list_argv = list(sys.argv)
 nm = list_argv[1]+'mon'
-command = 'airodump-ng ' + nm 
+command = 'sudo airodump-ng ' + nm 
 os.system(command)
 
 time.sleep(15)
