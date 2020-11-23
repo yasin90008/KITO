@@ -286,7 +286,7 @@ print(line)
 
 
 print(Red+f"\t\t       {wifi_sel} Monitor Start\n"+Blue,end="")
-os.system(f'airmon-ng start {wifi_sel}')
+os.system(f'sudo airmon-ng start {wifi_sel}')
 proc = subprocess.call(['gnome-terminal', '-e', f'python3 core/conn.py {wifi_sel}'  ])
 main()
 print(Red+f"\t\t Your Near All WIFI Details\n"+Blue)
