@@ -35,29 +35,9 @@ def get_id():
                 use_time = r.text
                 use_time = use_time.strip()
             else:
-                banner()
-                print('\n\tSomething Wrong To Get I\'D\n\n       Please Contact To Developer ')
-                print('\n\t     Error : 501\n')
-                print(line)
-                print(Red+'\n\t\t[ Sub Menu ]')
-                print(Blue +'''\n[01] Contact To Developer\n[02] Again Run Dark WiFi Tool''')
-                error501 = input('\nChoose One Options : ')
-                if error501 == 1:
-                    subprocess.call([sys.executable, 'core/contact.py'])
-                else: 
-                    subprocess.call([sys.executable, 'dark-wifi.py'])
+                pass
         except:
-            banner()
-            print('\n     Your Internet Connection Slow ... ')
-            print('\n\t     Error : 502\n')
-            print(line)
-            print(Red+'\n\t\t[ Sub Menu ]')
-            print(Blue +'''\n[01] Contact To Developer\n[02] Again Run Dark WiFi Tool''')
-            error502 = input('\nChoose One Options : ')
-            if error502 == 1:
-                subprocess.call([sys.executable, 'core/contact.py'])
-            else: 
-                subprocess.call([sys.executable, 'dark-wifi.py'])
+            pass
     else:
         header = ''
         url = 'https://honeypots.tech/p/Dark-WiFi/user/id.php'
@@ -70,31 +50,11 @@ def get_id():
             id_check.write(id_gen)
             id = id_gen
         else :
-                banner()
-                print('\n\tSomething Wrong To Get I\'D\n\n       Please Contact To Developer ')
-                print('\n\t     Error : 503\n')
-                print(line)
-                print(Red+'\n\t\t[ Sub Menu ]')
-                print(Blue +'''\n[01] Contact To Developer\n[02] Again Run Dark WiFi Tool''')
-                error503 = input('\nChoose One Options : ')
-                if error503 == 1:
-                    subprocess.call([sys.executable, 'core/contact.py'])
-                else: 
-                    subprocess.call([sys.executable, 'dark-wifi.py'])
+            pass
     if id:
         pass
     else:
-        banner()
-        print('\n\tSomething Wrong To Get I\'D\n\n       Please Contact To Developer ')
-        print('\n\t     Error : 506\n')
-        print(line)
-        print(Red+'\n\t\t[ Sub Menu ]')
-        print(Blue +'''\n[01] Contact To Developer\n[02] Again Run Dark WiFi Tool''')
-        error503 = input('\nChoose One Options : ')
-        if error503 == 1:
-            subprocess.call([sys.executable, 'core/contact.py'])
-        else: 
-            subprocess.call([sys.executable, 'dark-wifi.py'])
+        pass
 
     if use_time:
         pass
@@ -206,6 +166,7 @@ try:
     instl_file = open("core/.install", 'a')
     instl_write = open("core/.install","w")
     instl_write.write("1") 
+    os.system("sudo apt-get install gnome-terminal")
 except:
     banner()
     install_file = open("core/.install", 'a')
@@ -274,9 +235,9 @@ yes_no = yes_no.lower().strip()
 if yes_no == 'y' or yes_no == 'yes' :
     try:
         print("\n")
-        os.system(f"ifconfig {wifi_sel} down")
-        os.system(f"macchanger -r {wifi_sel} ")
-        os.system(f"ifconfig {wifi_sel} up")
+        os.system(f"sudo ifconfig {wifi_sel} down")
+        os.system(f"sudo macchanger -r {wifi_sel} ")
+        os.system(f"sudo ifconfig {wifi_sel} up")
     except:
         pass
 else :
