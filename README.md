@@ -36,5 +36,5 @@ python3 wi-jam.py
 ```
 
 ## Contact Me
-* <b>YOUTUBE CHANNEL : https://www.youtube.com/c/honeypots0 </b>
-* <b>TWITTER I'D : https://twitter.com/secanonhp/ </b>
+* <b>YOUTUBE CHANNEL : https://www.youtube.com/c/secanonm </b>
+* <b>TWITTER I'D : https://twitter.com/secanonm/ </b>
